@@ -5,10 +5,6 @@
 
 typedef uint8_t BYTE;
 
-//required functions
-void itoa(int, char*);
-void reverse(char*);
-
 int main(int argc, char* argv[]){
     
     if(argc!=2){
@@ -29,12 +25,27 @@ int main(int argc, char* argv[]){
     //50 output files
     FILE* outptr[50];
     
-    int i;
+    int i,j,temp;
+    
+    //int dummy_num=0;
+    char dummy[11]={'0','1','2','3','4','5','6','7','8','9','\0'};
+    int dum_arr[3];
+    char name[50][10];
+    
+    for(i=0;i<50;i++){
+        temp=i;
+        for(j=0;j<3;j++){
+            dum_arr[j]=temp%10;
+            temp=temp/10;
+        }
+        for(j=0;j<3;j++){
+            name[i][j]=dummy[dum_arr[2-j]];
+        }
+        name[i][3]='\0';
+    }
     
     for (i=0;i<50;i++){
-        char str[10];
-        itoa(i+1,str);
-        outptr[i]=fopen(strcat(str,".jpeg"), "w");
+        outptr[i]=fopen(strcat(name[i],".jpg"), "w");
     }
     
     i=-1;
@@ -53,29 +64,4 @@ int main(int argc, char* argv[]){
     }
     
     return 0;
-}
-
-void itoa(int n, char s[]){
-    int i, sign;
- 
-    if ((sign = n) < 0)  /* record sign */
-    n = -n;          /* make n positive */
-    i = 0;
-    do {       /* generate digits in reverse order */
-    s[i++] = n % 10 + '0';   /* get next digit */
-    } while ((n /= 10) > 0);     /* delete it */
-    if (sign < 0)
-    s[i++] = '-';
-    s[i] = '\0';
-    reverse(s);
-}
-
-void reverse(char s[]){
-    int i, j;
-    char c;
-    for (i = 0, j = strlen(s)-1; i<j; i++, j--) {
-        c = s[i];
-        s[i] = s[j];
-        s[j] = c;
-    }
 }
