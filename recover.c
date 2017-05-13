@@ -5,6 +5,9 @@
 
 typedef uint8_t BYTE;
 
+//required functions
+void itoa(int, char*);
+void reverse(char*);
 #define NUMMAX 50
 #define NUMDIGMAX 3
 
@@ -67,4 +70,5 @@ int main(int argc, char* argv[]){
     }
     
     return 0;
+
 }
