@@ -5,6 +5,9 @@
 
 typedef uint8_t BYTE;
 
+#define NUMMAX=50;
+#define NUMDIGMAX=3;
+
 int main(int argc, char* argv[]){
     
     if(argc!=2){
@@ -32,9 +35,9 @@ int main(int argc, char* argv[]){
     int dum_arr[3];
     char name[50][10];
     
-    for(i=0;i<50;i++){
+    for(i=0;i<NUMMAX;i++){
         temp=i;
-        for(j=0;j<3;j++){
+        for(j=0;j<NUMDIGMAX;j++){
             dum_arr[j]=temp%10;
             temp=temp/10;
         }
