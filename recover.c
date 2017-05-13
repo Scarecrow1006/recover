@@ -5,8 +5,8 @@
 
 typedef uint8_t BYTE;
 
-#define NUMMAX=50;
-#define NUMDIGMAX=3;
+#define NUMMAX 50
+#define NUMDIGMAX 3
 
 int main(int argc, char* argv[]){
     
